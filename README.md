@@ -40,7 +40,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-## Add the following keys to .env:
+## Update the following value of keys to the created .env:
 ```bash
 DB_DATABASE=news_aggregator
 DB_USERNAME=root
@@ -54,6 +54,11 @@ NYT_KEY=your_nyt_key
 ## Run Migrations command
 ```
 php artisan migrate
+```
+
+## Run Application command
+```
+php artisan serve
 ```
 
 ## 🔄 Fetching News (Manual Runs)
@@ -102,7 +107,13 @@ Start in: E:\xampp\htdocs\news-aggregator
 Trigger: every 1 minute
 ```
 ## 🧽 Useful Maintenance Commands
+```
 php artisan optimize:clear
 php artisan cache:clear
 php artisan config:clear
+```
 
+## 👨‍💻 Author
+
+### Amit Kumar
+Backend Developer — Laravel | API Architecture | System Design
