@@ -40,7 +40,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-# Add the following keys to .env:
+## Add the following keys to .env:
 ```bash
 DB_DATABASE=news_aggregator
 DB_USERNAME=root
@@ -51,24 +51,23 @@ GUARDIAN_KEY=your_guardian_key
 NYT_KEY=your_nyt_key
 ```
 
-# Run Migrations command
+## Run Migrations command
 ```
 php artisan migrate
 ```
 
-# Fetching News (Manual Runs) for All providers (Guardian + NewsAPI + NYT)
+## 🔄 Fetching News (Manual Runs)
 ```
+### fetch ALL providers (Guardian + NewsAPI + NYT)
 php artisan news:fetch
-```
 
-# To fetch a single provider
-```
+### To fetch only one provider
 php artisan news:fetch guardian
 php artisan news:fetch newsapi
 php artisan news:fetch nyt
 ```
 
-## API Endpoints
+## 🎯 API Endpoints
 
 ```
 GET /api/articles                                             (Articles - List (page-based))
@@ -87,12 +86,12 @@ To enable automatic updates:
 php artisan schedule:run
 ```
 
-## Add to system cron:
-# for Linux/macOS crontab
+# Add to system cron:
+## for Linux/macOS crontab
 ```
 * * * * * php /path/to/your/project/artisan schedule:run >> /dev/null 2>&11
 ```
-# for Windows Task Scheduler
+## for Windows Task Scheduler
 ```
 Program: php
 
@@ -102,7 +101,7 @@ Start in: E:\xampp\htdocs\news-aggregator
 
 Trigger: every 1 minute
 ```
-##  Useful Maintenance Commands
+## 🧽 Useful Maintenance Commands
 php artisan optimize:clear
 php artisan cache:clear
 php artisan config:clear
