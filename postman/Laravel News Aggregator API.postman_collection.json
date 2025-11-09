@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "6e286c34-2f3e-4468-9960-001b66060043",
+		"name": "Laravel News Aggregator API",
+		"description": "Postman collection for testing the Laravel News Aggregator API endpoints with filters, search, and both page-based and limit/offset pagination.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6057977"
+	},
+	"item": [
+		{
+			"name": "Articles - List (page-based)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/articles",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"articles"
+					]
+				},
+				"description": "Default page-based pagination (15 per page). Add `?page=2` to navigate."
+			},
+			"response": []
+		},
+		{
+			"name": "Articles - Source filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/articles?source=guardian",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "guardian",
+							"description": "guardian, newsapi, nyt"
+						}
+					]
+				},
+				"description": "Filter by source: newsapi | guardian | nyt"
+			},
+			"response": []
+		},
+		{
+			"name": "Articles - Category filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/articles?category=politics",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "politics"
+						}
+					]
+				},
+				"description": "Filter by normalized category/section (e.g., world, politics, sports)."
+			},
+			"response": []
+		},
+		{
+			"name": "Articles - Date filter (YYYY-MM-DD)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/articles?date=2025-11-07",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2025-11-07"
+						}
+					]
+				},
+				"description": "Filter by publish date (server timezone). Format: YYYY-MM-DD."
+			},
+			"response": []
+		},
+		{
+			"name": "Articles - Search term",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/articles?search=space",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "space"
+						}
+					]
+				},
+				"description": "Full-text style search across title and description."
+			},
+			"response": []
+		},
+		{
+			"name": "Articles - Limit/Offset",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/articles?limit=20&offset=0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "20"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				},
+				"description": "Offset-based pagination. Combine with filters as needed."
+			},
+			"response": []
+		},
+		{
+			"name": "Articles - Combined (source + search + limit/offset)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/articles?source=nyt&search=trump&limit=50&offset=0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "nyt"
+						},
+						{
+							"key": "search",
+							"value": "trump"
+						},
+						{
+							"key": "limit",
+							"value": "50"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				},
+				"description": "A practical example mixing filters and offset-based pagination."
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:8000"
+		}
+	]
+}
